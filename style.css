@@ -1,0 +1,87 @@
+/* Color Palette */
+:root {
+  --green: #21a363;
+  --yellow: #fdce4a;
+  --light-blue: #498af4;
+  --dark-blue: #3e6fc9;
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #f5f5f5;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+section {
+  padding: 2rem;
+  border-bottom: 1px solid var(--gray);
+}
+
+section h2 {
+  color: var(--dark-blue);
+  margin-bottom: 1rem;
+}
+
+.job h3 {
+  margin-bottom: 0.5rem;
+  color: var(--green);
+}
+
+.job p {
+  margin: 0.2rem 0 0.5rem 0;
+  font-style: italic;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skills-list li {
+  background-color: var(--light-blue);
+  color: var(--white);
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+#contact a {
+  color: var(--dark-blue);
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem;
+}
