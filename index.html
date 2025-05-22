@@ -28,9 +28,28 @@
     ul {
       padding-left: 20px;
     }
+    button#print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    @media print {
+      button#print-btn {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <button id="print-btn" onclick="window.print()">📄 Save as PDF</button>
 
   <h1>Tristan Galano</h1>
   <p>Butuan City, PH</p>
