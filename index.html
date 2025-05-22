@@ -1,117 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Tristan Galano - Resume</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tristan Galano - Portfolio</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
       line-height: 1.6;
       color: #333;
-      background-color: #fff;
+      background: #f9f9f9;
     }
-    h1, h2, h3 {
-      color: #2c3e50;
+    header, section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
-    a {
-      color: #3498db;
+    header {
+      background: #3498db;
+      color: white;
+      text-align: center;
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    nav {
+      background: white;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+    nav a {
       text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
     }
-    hr {
-      border: 0;
-      border-top: 1px solid #eee;
-      margin: 20px 0;
+    h1, h2 {
+      margin-top: 0;
     }
     ul {
       padding-left: 20px;
     }
-    button#print-btn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px 15px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
+    .projects div {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    @media print {
-      button#print-btn {
-        display: none;
-      }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+    }
+    a {
+      color: #3498db;
     }
   </style>
 </head>
 <body>
 
-  <button id="print-btn" onclick="window.print()">📄 Save as PDF</button>
-
+<header>
   <h1>Tristan Galano</h1>
-  <p>Butuan City, PH</p>
-  <p>📞 +639517978703<br>
-  ✉️ Tristan.galano22@gmail.com<br>
-  🔗 <a href="https://www.linkedin.com/in/tristangalano/" target="_blank">LinkedIn</a></p>
+  <p>Automation Specialist | SEO | Web & Workflow Automation</p>
+  <p><a href="mailto:tristan.galano22@gmail.com" style="color: white;">📧 tristan.galano22@gmail.com</a></p>
+  <p><a href="https://www.linkedin.com/in/tristangalano" style="color: white;">🔗 LinkedIn</a></p>
+</header>
 
-  <hr>
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#experience">Experience</a>
+  <a href="/resume">Resume</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <h2>🎯 Career Summary</h2>
-  <p>Automation Specialist with a strong background in SEO and outreach, leveraging 3 years of digital marketing experience and 6 months in automation. Skilled in Make.com, N8N, App Script, and coding languages like Python and JavaScript. Adept at streamlining workflows, building scalable systems, and improving team efficiency through smart automation.</p>
+<section id="about">
+  <h2>About Me</h2>
+  <p>I’m an Automation Specialist with 3 years of experience in SEO backlink building and 6 months in automation. I build systems using Make.com, N8N, App Script, and Python to eliminate repetitive tasks and improve team productivity. My goal is to merge marketing with automation to deliver faster, smarter results.</p>
+</section>
 
-  <hr>
-
-  <h2>💼 Experience</h2>
-
-  <h3>Freelance – Automation Specialist (Gig)</h3>
-  <ul>
-    <li>Automated Slack Notifications & Task Allocation using Make.com.</li>
-    <li>Improved workload management with real-time task assignment automation.</li>
-  </ul>
-
-  <h3>TYGweb.com – Website Acquisition Specialist (Remote)<br><small>Jul 2024 – Jan 2025</small></h3>
-  <ul>
-    <li>Researched and analyzed 2,000+ websites using SEMrush.</li>
-    <li>Automated outreach via Mail Merge App Scripts, reducing manual effort by 80%.</li>
-    <li>Built lasting webmaster relationships and improved acquisition success rates.</li>
-  </ul>
-
-  <h3>OutreachLab.com – Backlink Builder (Remote)<br><small>Sep 2023 – Jun 2024</small></h3>
-  <ul>
-    <li>Managed site data via Respona and improved accuracy by 50%.</li>
-    <li>Increased outreach engagement by 25% through personalized campaigns.</li>
-  </ul>
-
-  <h3>DigitalWebProperties.com – SEO Backlink Builder (Remote)<br><small>Apr 2022 – Sep 2023</small></h3>
-  <ul>
-    <li>Executed SEMrush-driven research for backlink targeting.</li>
-    <li>Automated email campaigns, managed 3-way link exchanges, and maintained high outreach volume.</li>
-  </ul>
-
-  <hr>
-
-  <h2>🎓 Education</h2>
-  <p><strong>BS in Information Technology</strong></p>
-
-  <hr>
-
-  <h2>🧠 Skills</h2>
+<section id="skills">
+  <h2>Skills</h2>
   <p>Automation, Backlink Building, Make.com, N8N, Airtable, API, Webhooks, Python, HTML, CSS, JavaScript, MySQL</p>
+</section>
 
-  <hr>
+<section id="projects" class="projects">
+  <h2>Projects</h2>
+  <div>
+    <h3>n8n AI Email Customer Assistant</h3>
+    <p>AI-powered assistant that handles customer queries like parcel tracking, rates, and more using email and link data.</p>
+  </div>
+  <div>
+    <h3>Basic POS with Debt Tracking</h3>
+    <p>Python-based point of sale system that tracks outstanding balances alongside transactions.</p>
+  </div>
+  <div>
+    <h3>Mail Merge App Script</h3>
+    <p>Google Sheets + JavaScript automation to generate and send personalized email drafts at scale.</p>
+  </div>
+  <div>
+    <h3>Slack Notifications & Task Allocation</h3>
+    <p>Make.com automation for Slack that assigns and notifies team members about tasks based on load.</p>
+  </div>
+</section>
 
-  <h2>🛠️ Projects</h2>
+<section id="experience">
+  <h2>Experience</h2>
   <ul>
-    <li><strong>n8n AI Email Customer Assistant</strong> – AI chatbot that handles inquiries such as pricing, tracking, and estimation using shared product links.</li>
-    <li><strong>Basic POS with Debt Tracking</strong> – Python-based POS with features for debt monitoring and transaction tracking.</li>
-    <li><strong>Mail Merge App Script</strong> – Google Sheets + JavaScript automation for mass personalized email drafting.</li>
-    <li><strong>Automated Slack Notifications</strong> – Slack integration for task alerts and auto-assignment via Make.com.</li>
-    <li><strong>Automated Inspirational Quotes</strong> – Scheduled Telegram posts via Make.com.</li>
-    <li><strong>Automated Contract Drafting</strong> – End-to-end contract generation pipeline using Airtable, Close CRM, and Pandadoc.</li>
+    <li><strong>Freelance – Automation Specialist</strong><br>Built internal tools and Slack workflows using Make.com</li>
+    <li><strong>Website Acquisition Specialist – TYGweb.com</strong> (2024-2025)<br>Automated outreach and handled domain prospecting</li>
+    <li><strong>Backlink Builder – OutreachLab.com</strong> (2023-2024)<br>Managed Respona outreach with verified data</li>
+    <li><strong>SEO Backlink Builder – DigitalWebProperties.com</strong> (2022-2023)<br>Handled SEMrush-driven backlink outreach and negotiation</li>
   </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>📍 Butuan City, Philippines</p>
+  <p>📧 <a href="mailto:tristan.galano22@gmail.com">tristan.galano22@gmail.com</a></p>
+  <p>🔗 <a href="https://www.linkedin.com/in/tristangalano">linkedin.com/in/tristangalano</a></p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Tristan Galano. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
