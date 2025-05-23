@@ -1,87 +1,471 @@
-/* Color Palette */
+/* --- Global Styles & Variables --- */
 :root {
-  --green: #21a363;
-  --yellow: #fdce4a;
-  --light-blue: #498af4;
-  --dark-blue: #3e6fc9;
-  --white: #ffffff;
-  --black: #000000;
-  --gray: #f5f5f5;
+    --bg-primary: #FFFFFF;                     /* White */
+    --bg-secondary: #F0F4F8;                 /* Light Gray - for cards/subtle sections */
+    --header-footer-bg: #1E3A5F;             /* Deep Dark Blue (from image sidebar) */
+
+    --text-primary-dark: #212529;            /* Dark Gray/Black (for text on light bg) */
+    --text-secondary-dark: #495057;          /* Medium Dark Gray (for less important text) */
+    --text-primary-light: #FFFFFF;           /* White (for text on dark bg) */
+
+    --accent-blue-dark: #2F568C;             /* Medium Blue (from image 'Personal Info' bg - for H2, buttons) */
+    --accent-blue-light: #87CEEB;            /* Sky Blue (true light blue for links, hovers) */
+    --accent-blue-medium-hover: #5D8FBA;     /* A slightly darker light blue for hover on light blue elements */
+
+
+    --font-primary: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--white);
-  color: var(--black);
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
+    font-family: var(--font-primary);
+    background-color: var(--bg-primary);     /* White background */
+    color: var(--text-primary-dark);         /* Dark text */
+    line-height: 1.6;
 }
 
-header {
-  background-color: var(--black);
-  color: var(--white);
-  padding: 2rem;
-  text-align: center;
+h1, h2, h3 {
+    color: var(--accent-blue-dark);         /* Medium Blue for headings */
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
+h1 { /* For Hero section h1 */
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary-dark); /* Black for main hero title on white bg */
+}
+#hero h1 { /* If hero remains on a light/white background */
+    color: var(--text-primary-dark);
+}
+#hero .subtitle { /* If hero remains on a light/white background */
+    color: var(--text-secondary-dark);
 }
 
-header p {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
+
+h2 { /* Section titles */
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-blue-dark);
+}
+
+h3 { /* Card titles etc. */
+    font-size: 1.5rem;
+    color: var(--accent-blue-dark);
+}
+
+p {
+    color: var(--text-secondary-dark);      /* Medium Dark Gray for paragraphs */
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--accent-blue-light);        /* Light Blue for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-blue-dark);         /* Medium Blue on hover */
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 section {
-  padding: 2rem;
-  border-bottom: 1px solid var(--gray);
+    padding: 60px 20px;
+    border-bottom: 1px solid #dee2e6;     /* Light gray border between sections */
+}
+#hero { /* Keep hero distinct if needed, or blend */
+    border-bottom: none; /* No border for hero if it's visually distinct */
 }
 
-section h2 {
-  color: var(--dark-blue);
-  margin-bottom: 1rem;
+section:last-of-type {
+    border-bottom: none;
 }
 
-.job h3 {
-  margin-bottom: 0.5rem;
-  color: var(--green);
+.container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
 }
 
-.job p {
-  margin: 0.2rem 0 0.5rem 0;
-  font-style: italic;
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--header-footer-bg); /* Deep Dark Blue */
+    color: var(--text-primary-light);          /* White text */
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.skills-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.skills-list li {
-  background-color: var(--light-blue);
-  color: var(--white);
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+nav .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary-light);      /* White */
 }
 
-#contact a {
-  color: var(--dark-blue);
-  text-decoration: none;
+nav ul {
+    display: flex;
+    list-style: none;
 }
 
-#contact a:hover {
-  text-decoration: underline;
+nav ul li {
+    margin-left: 25px;
 }
 
+nav ul li a {
+    color: #bdcde0; /* Lighter shade of white/light blue for nav links */
+    font-weight: 600;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-blue-light); /* Light Blue underline */
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--text-primary-light);      /* White on hover */
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+
+/* --- Hero Section --- */
+#hero {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px; /* Adjust if header height changes */
+    background-color: var(--bg-primary); /* White background for hero */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content .subtitle {
+    font-size: 1.4rem;
+    color: var(--text-secondary-dark);     /* Medium Dark Gray subtitle */
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-blue-dark); /* Medium Blue */
+    color: var(--text-primary-light);        /* White text */
+    padding: 12px 30px;
+    border: 2px solid var(--accent-blue-dark); /* Medium Blue */
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--header-footer-bg); /* Darker blue on hover */
+    border-color: var(--header-footer-bg);
+    color: var(--text-primary-light);
+    transform: translateY(-3px);
+}
+
+/* --- About Section --- */
+#about {
+    background-color: var(--bg-secondary); /* Light Gray background */
+}
+.about-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.about-text {
+    flex: 2;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+.about-image img {
+    max-width: 250px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-blue-dark); /* Medium Blue border for image */
+}
+
+
+/* --- Projects Section --- */
+#projects {
+    background-color: var(--bg-primary); /* White background */
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.project-card {
+    background-color: var(--bg-secondary); /* Light Gray card background */
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0; /* Subtle border for cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+}
+
+.project-card h3 {
+    color: var(--accent-blue-dark); /* Medium Blue */
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.project-card p strong {
+    color: var(--accent-blue-dark); /* Medium Blue */
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--accent-blue-light); /* Light Blue */
+}
+.project-link:hover {
+    text-decoration: underline;
+    color: var(--accent-blue-dark); /* Medium Blue */
+}
+
+/* --- Skills Section --- */
+#skills {
+    background-color: var(--bg-secondary); /* Light Gray background */
+}
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.skill-category {
+    background-color: var(--bg-primary); /* White background for skill cards */
+    padding: 1.5rem;
+    border-radius: 8px;
+    flex-basis: 45%;
+    border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+.skill-category h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--accent-blue-dark); /* Medium Blue */
+}
+
+.skill-category ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skill-category ul li {
+    background-color: var(--bg-secondary); /* Light Gray for list items */
+    color: var(--text-primary-dark);
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    border-left: 3px solid var(--accent-blue-light); /* Light Blue accent border */
+}
+
+/* --- Experience & Education Section --- */
+#experience {
+    background-color: var(--bg-primary); /* White background */
+}
+.experience-item, .education-item {
+    background-color: var(--bg-secondary); /* Light Gray background for items */
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-blue-dark); /* Medium Blue accent border */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.experience-item h3, .education-item h3 {
+    color: var(--accent-blue-dark); /* Medium Blue */
+}
+
+.experience-item p em, .education-item p em {
+    color: var(--text-secondary-dark);
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.experience-item ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: var(--text-secondary-dark);
+}
+.experience-item ul li {
+    margin-bottom: 0.3rem;
+}
+
+.resume-button { /* Re-style for light theme */
+    display: block;
+    width: fit-content;
+    margin: 2rem auto 0;
+    background-color: var(--accent-blue-light); /* Light blue */
+    color: var(--text-primary-dark); /* Dark text for contrast on light blue */
+    padding: 12px 30px;
+    border: 2px solid var(--accent-blue-light);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+}
+
+.resume-button:hover {
+    background-color: var(--accent-blue-medium-hover); /* Slightly darker light blue */
+    border-color: var(--accent-blue-medium-hover);
+    color: var(--text-primary-dark);
+    transform: translateY(-3px);
+}
+
+
+/* --- Contact Section --- */
+#contact {
+    background-color: var(--bg-secondary); /* Light Gray background */
+    text-align: center;
+}
+
+#contact p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-secondary-dark);
+}
+
+.contact-info {
+    margin-top: 2rem;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-primary-dark);
+}
+
+.contact-info p i {
+    margin-right: 10px;
+    color: var(--accent-blue-dark); /* Medium Blue for icons */
+}
+
+.contact-info a {
+    color: var(--accent-blue-light); /* Light Blue for links */
+}
+
+.contact-info a:hover {
+    color: var(--accent-blue-dark); /* Medium Blue on hover */
+}
+
+/* --- Footer --- */
 footer {
-  background-color: var(--black);
-  color: var(--white);
-  text-align: center;
-  padding: 1rem;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--header-footer-bg); /* Deep Dark Blue */
+    color: var(--text-primary-light);          /* White text */
+    font-size: 0.9rem;
+    border-top: 1px solid var(--header-footer-bg); /* No need for diff border if bg is dark */
+}
+
+/* --- Responsive Design (remains largely the same, adjust if needed) --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    #hero h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    nav { flex-direction: column; padding: 1rem; }
+    nav .logo { margin-bottom: 0.5rem; }
+    nav ul { flex-direction: column; align-items: center; width: 100%; }
+    nav ul li { margin: 0.5rem 0; width: 100%; text-align: center; }
+    nav ul li a { display: block; padding: 0.8rem; }
+    nav ul li a::after { display: none; }
+    #hero { min-height: 70vh; padding: 60px 20px 40px; }
+    .hero-content .subtitle { font-size: 1.2rem; }
+    .about-content { flex-direction: column; }
+    .about-image img { margin-top: 1rem; max-width: 200px; }
+    .project-grid { grid-template-columns: 1fr; }
+    .skills-container { flex-direction: column; }
+    .skill-category { flex-basis: 100%; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    #hero h1 { font-size: 2rem; }
+    .hero-content .subtitle { font-size: 1rem; }
+    .cta-button, .resume-button { padding: 10px 20px; font-size: 0.9rem; }
 }
