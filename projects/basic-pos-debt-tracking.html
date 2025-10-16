@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Basic POS with Debt Tracking — Tristan Galano</title>
+  <meta name="description" content="Python-based POS with customer debt tracking and simple sales reporting." />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Montserrat','ui-sans-serif','system-ui'] } } },
+      darkMode: 'class'
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Fav -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧾</text></svg>">
+</head>
+
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/60 dark:border-slate-800">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="../index.html" class="font-bold tracking-tight text-lg">Tristan <span class="text-indigo-600">Galano</span></a>
+      <ul class="hidden sm:flex gap-6 text-sm">
+        <li><a href="../index.html#about" class="hover:text-indigo-600">Summary</a></li>
+        <li><a href="../index.html#experience" class="hover:text-indigo-600">Experience</a></li>
+        <li><a href="../index.html#projects" class="hover:text-indigo-600">Projects</a></li>
+        <li><a href="../index.html#skills" class="hover:text-indigo-600">Skills</a></li>
+        <li><a href="../resume.html" class="hover:text-indigo-600">Resume</a></li>
+        <li><a href="../index.html#contact" class="hover:text-indigo-600">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="py-12 sm:py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumb -->
+        <nav class="text-sm text-slate-500">
+          <a href="../index.html" class="hover:text-indigo-600">Home</a> ▸
+          <a href="../index.html#projects" class="hover:text-indigo-600">Projects</a> ▸
+          <span class="text-slate-400">Basic POS with Debt Tracking</span>
+        </nav>
+
+        <h1 class="mt-3 text-3xl sm:text-4xl font-bold">Basic POS with Debt Tracking</h1>
+        <p class="mt-2 text-slate-500">Python • CLI/Script • Debt Ledger • Sales Summary</p>
+
+        <!-- Hero summary -->
+        <div class="mt-6 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/60">
+          <p class="text-sm text-slate-700 dark:text-slate-300">
+            A lightweight Point of Sale tool that records sales, tracks customer debts, and generates simple sales summaries.
+            Built to keep daily transactions clear and outstanding balances visible.
+          </p>
+        </div>
+        <!-- Content -->
+        <div class="mt-10 grid lg:grid-cols-3 gap-8">
+          <!-- Main -->
+          <article class="lg:col-span-2 space-y-8">
+            <section>
+              <h2 class="text-xl font-semibold">Overview</h2>
+              <p class="mt-3 text-slate-700 dark:text-slate-300">
+                The project provides core POS actions (add items, record sales, manage customers) and introduces a
+                <strong>debt tracking</strong> layer so you can log partial payments and keep an up-to-date balance per customer.
+              </p>
+            </section>
+
+            <section>
+              <h2 class="text-xl font-semibold">Key Features</h2>
+              <ul class="mt-3 list-disc ms-5 space-y-2 text-slate-700 dark:text-slate-300">
+                <li>Record sales with date/time and totals.</li>
+                <li>Create customers and track their running <strong>debt/balance</strong>.</li>
+                <li>Apply payments (partial or full) and auto-recalculate remaining balance.</li>
+                <li>Simple <strong>sales report</strong> to view daily/overall totals.</li>
+                <li>Lightweight data model that’s easy to extend (e.g., inventory later).</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 class="text-xl font-semibold">Tech Stack</h2>
+              <p class="mt-3 text-slate-700 dark:text-slate-300">
+                <strong>Python</strong> for the core logic. Data is stored in simple structures/files (CSV/JSON/SQLite — depending on your latest commit; feel free to update this line).
+              </p>
+            </section>
+
+            <section>
+              <h2 class="text-xl font-semibold">How It Works</h2>
+              <ol class="mt-3 list-decimal ms-5 space-y-2 text-slate-700 dark:text-slate-300">
+                <li>Add or select a customer.</li>
+                <li>Enter items/amount and save the sale.</li>
+                <li>If unpaid, the difference is recorded as <em>debt</em>.</li>
+                <li>When the customer pays later, record the payment and the balance updates automatically.</li>
+              </ol>
+            </section>
+
+            <section>
+              <h2 class="text-xl font-semibold">Impact</h2>
+              <ul class="mt-3 list-disc ms-5 space-y-2 text-slate-700 dark:text-slate-300">
+                <li>Clear visibility on outstanding balances per customer.</li>
+                <li>Fewer manual errors when tracking partial payments.</li>
+                <li>Fast end-of-day summaries for sales and collections.</li>
+              </ul>
+            </section>
+
+            <div class="pt-6 flex flex-wrap gap-3">
+              <a href="https://github.com/Tristan-Galano/pos-with-debt-tracking" target="_blank" rel="noopener"
+                 class="inline-flex items-center px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-500">
+                View Source on GitHub
+              </a>
+              <a href="../index.html#projects"
+                 class="inline-flex items-center px-4 py-2 rounded-md border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">
+                ← Back to Projects
+              </a>
+            </div>
+          </article>
+
+          <!-- Sidebar -->
+          <aside class="space-y-4">
+            <div class="rounded-lg border border-slate-200 dark:border-slate-800 p-5">
+              <h3 class="font-semibold">Technologies</h3>
+              <ul class="mt-2 text-sm space-y-1">
+                <li>Python</li>
+                <li>File/DB storage (CSV/JSON/SQLite)</li>
+              </ul>
+            </div>
+
+            <div class="rounded-lg border border-slate-200 dark:border-slate-800 p-5">
+              <h3 class="font-semibold">Role</h3>
+              <p class="mt-2 text-sm">Solo Developer — Design, data model, implementation.</p>
+            </div>
+
+            <div class="rounded-lg border border-slate-200 dark:border-slate-800 p-5">
+              <h3 class="font-semibold">Status</h3>
+              <p class="mt-2 text-sm">Active; open to feature requests (inventory, receipts, export).</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-slate-500 flex items-center justify-between">
+      <p>&copy; <span id="year"></span> Tristan Galano.</p>
+      <a href="#top" class="hover:text-indigo-600">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightweight lightbox
+    // (click any image to open in fullscreen; click overlay to close)
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('click', () => {
+        const overlay = document.createElement('div');
+        overlay.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 opacity-0 transition-opacity duration-300';
+        const enlarged = document.createElement('img');
+        enlarged.src = img.src;
+        enlarged.alt = img.alt || '';
+        enlarged.className = 'max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border border-slate-300 dark:border-slate-700';
+        overlay.appendChild(enlarged);
+        overlay.addEventListener('click', () => overlay.remove());
+        document.body.appendChild(overlay);
+        requestAnimationFrame(() => overlay.classList.remove('opacity-0'));
+      });
+    });
+  </script>
+</body>
+</html>

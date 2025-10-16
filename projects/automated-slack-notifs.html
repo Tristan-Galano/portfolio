@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Automated Slack Notifications & Task Allocation (Make.com) — Tristan Galano</title>
+  <meta name="description" content="Make.com scenario that posts Slack alerts for new pages and auto-assigns tasks based on teammate workload." />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Montserrat','ui-sans-serif','system-ui'] } } },
+      darkMode: 'class'
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Fav -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧩</text></svg>">
+</head>
+
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/60 dark:border-slate-800">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="../index.html" class="font-bold tracking-tight text-lg">Tristan <span class="text-indigo-600">Galano</span></a>
+      <ul class="hidden sm:flex gap-6 text-sm">
+        <li><a href="../index.html#about" class="hover:text-indigo-600">Summary</a></li>
+        <li><a href="../index.html#experience" class="hover:text-indigo-600">Experience</a></li>
+        <li><a href="../index.html#projects" class="hover:text-indigo-600">Projects</a></li>
+        <li><a href="../index.html#skills" class="hover:text-indigo-600">Skills</a></li>
+        <li><a href="../resume.html" class="hover:text-indigo-600">Resume</a></li>
+        <li><a href="../index.html#contact" class="hover:text-indigo-600">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="py-12 sm:py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumb -->
+        <nav class="text-sm text-slate-500">
+          <a href="../index.html" class="hover:text-indigo-600">Home</a> ▸
+          <a href="../index.html#projects" class="hover:text-indigo-600">Projects</a> ▸
+          <span class="text-slate-400">Automated Slack Notifications & Task Allocation (Make.com)</span>
+        </nav>
+
+        <h1 class="mt-3 text-3xl sm:text-4xl font-bold">Automated Slack Notifications & Task Allocation (Make.com)</h1>
+        <p class="mt-2 text-slate-500">Make.com (Integromat) • Slack • Webhooks/Events • Workload Balancing</p>
+
+        <!-- Hero summary -->
+        <div class="mt-6 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/60">
+          <p class="text-sm text-slate-700 dark:text-slate-300">
+            A <strong>Make.com</strong> scenario that listens for new-page events, posts formatted <strong>Slack alerts</strong>,
+            and <strong>auto-assigns tasks</strong> based on current teammate workload. Keeps handoffs fast and distribution fair—no manual triage.
+          </p>
+        </div>
+
+        <!-- Hero image (Make.com scenario screenshot) -->
+        <figure class="mt-6 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <img
+            src="../assets/images/slack-automation/image.png"
+            alt="Make.com scenario: Slack notifications and task allocation"
+            class="w-full h-auto"
+          />
+          <figcaption class="p-3 text-xs text-slate-500 border-t border-slate-200 dark:border-slate-800">
+            Make.com scenario canvas with routers and filters for Slack notifications and workload-aware assignment.
+          </figcaption>
+        </figure>
+
+        <!-- Content -->
+        <div class="mt-10 grid lg:grid-cols-3 gap-8">
+          <!-- Main -->
+          <article class="lg:col-span-2 space-y-8">
+            <section>
+              <h2 class="text-xl font-semibold">Overview</h2>
+              <p class="mt-3 text-slate-700 dark:text-slate-300">
+                Built entirely in <strong>Make.com</strong>, this automation captures “new page” events from the source app,
+                enriches metadata (owner, tags, priority), posts a Slack message (Blocks), and assigns the follow-up to the best teammate
+                based on a lightweight load score stored in a sheet/datastore.
+              </p>
+            </section>
+
+            <section>
+              <h2 class="text-xl font-semibold">Key Features</h2>
+              <ul class="mt-3 list-disc ms-5 space-y-2 text-slate-700 dark:text-slate-300">
+                <li>Real-time Slack alerts with page link, owner, and priority badges.</li>
+                <li>Workload-aware <strong>auto-assignment</strong> using Make routers, filters, and array tools.</li>
+                <li>Manual override via Slack (emoji or button → webhook) supported.</li>
+                <li>Idempotency: duplicate-event guards and retry with backoff.</li>
+                <li>Audit notes appended back to the source or a tracker record.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 class="text-xl font-semibold">Tech Stack</h2>
+              <p class="mt-3 text-slate-700 dark:text-slate-300">
+                <strong>Make.com</strong> (HTTP/Webhooks, Routers, Filters, Variables, Iterator/Aggregator, Data Stores),
+                <strong>Slack</strong> (Incoming Webhook / Chat:PostMessage), optional <strong>Google Sheets</strong> or Make <em>Data Store</em> for workload stats,
+                and optional tracker (Notion/Jira/Trello) via Make modules.
+              </p>
+            </section>
+
+            <section>
+              <h2 class="text-xl font-semibold">How It Works</h2>
+              <ol class="mt-3 list-decimal ms-5 space-y-2 text-slate-700 dark:text-slate-300">
+                <li><strong>Trigger:</strong> Webhook/Watch module fires on “New Page.”</li>
+                <li><strong>Enrich:</strong> Lookup owner/tags; compute priority.</li>
+                <li><strong>Load score:</strong> Pull open items per teammate from Sheets/Data Store; apply cooldown weights.</li>
+                <li><strong>Route:</strong> Router selects the best assignee; filters handle exceptions/overrides.</li>
+                <li><strong>Notify:</strong> Post Slack Block message to the channel with assignments.</li>
+                <li><strong>Persist:</strong> Update tracker + Data Store for audit and future balancing.</li>
+              </ol>
+            </section>
+
+            <section>
+              <h2 class="text-xl font-semibold">Impact</h2>
+              <ul class="mt-3 list-disc ms-5 space-y-2 text-slate-700 dark:text-slate-300">
+                <li>Seconds-fast visibility for new work in Slack.</li>
+                <li>Smoother distribution and fewer bottlenecks.</li>
+                <li>Less manual coordination; clearer ownership.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 class="text-xl font-semibold">Example Slack Block (trimmed)</h2>
+              <pre class="mt-3 text-xs bg-slate-950/80 text-slate-100 p-4 rounded-lg overflow-x-auto"><code>{
+  "blocks": [
+    { "type": "section", "text": { "type": "mrkdwn",
+      "text": "*New Page:* &lt;https://…|Customer Onboarding Checklist&gt; • *Priority:* High" } },
+    { "type": "context", "elements": [
+      { "type": "mrkdwn", "text": "Owner: @alex | Assigned: @jane | Tag: onboarding" }
+    ]},
+    { "type": "actions", "elements": [
+      { "type": "button", "text": { "type": "plain_text", "text": "Reassign" }, "action_id": "reassign" }
+    ]}
+  ]
+}</code></pre>
+            </section>
+
+            <div class="pt-6 flex flex-wrap gap-3">
+              <a href="#" target="_blank" rel="noopener"
+                 class="inline-flex items-center px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-500">
+                View Source / Demo
+              </a>
+              <a href="../index.html#projects"
+                 class="inline-flex items-center px-4 py-2 rounded-md border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">
+                ← Back to Projects
+              </a>
+            </div>
+          </article>
+
+          <!-- Sidebar -->
+          <aside class="space-y-4">
+            <div class="rounded-lg border border-slate-200 dark:border-slate-800 p-5">
+              <h3 class="font-semibold">Technologies</h3>
+              <ul class="mt-2 text-sm space-y-1">
+                <li>Make.com (routers, filters, data stores)</li>
+                <li>Slack (webhook / chat.postMessage)</li>
+                <li>Google Sheets or Make Data Store</li>
+                <li>Optional: Notion/Jira/Trello modules</li>
+              </ul>
+            </div>
+
+            <div class="rounded-lg border border-slate-200 dark:border-slate-800 p-5">
+              <h3 class="font-semibold">Role</h3>
+              <p class="mt-2 text-sm">Solo Developer — scenario design, workload model, Slack UX.</p>
+            </div>
+
+            <div class="rounded-lg border border-slate-200 dark:border-slate-800 p-5">
+              <h3 class="font-semibold">Status</h3>
+              <p class="mt-2 text-sm">Active; adding PTO-aware scheduling and skill-based routing.</p>
+            </div>
+
+            <div class="rounded-lg border border-slate-200 dark:border-slate-800 p-5">
+              <h3 class="font-semibold">Safety & Limits</h3>
+              <ul class="mt-2 text-sm space-y-1">
+                <li>Duplicate-event debouncing; retries with backoff.</li>
+                <li>Channel allowlist; role-based overrides.</li>
+                <li>Rate limiting to respect Slack API quotas.</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-slate-500 flex items-center justify-between">
+      <p>&copy; <span id="year"></span> Tristan Galano.</p>
+      <a href="#top" class="hover:text-indigo-600">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightweight lightbox
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('click', () => {
+        const overlay = document.createElement('div');
+        overlay.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 opacity-0 transition-opacity duration-300';
+        const enlarged = document.createElement('img');
+        enlarged.src = img.src;
+        enlarged.alt = img.alt || '';
+        enlarged.className = 'max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border border-slate-300 dark:border-slate-700';
+        overlay.appendChild(enlarged);
+        overlay.addEventListener('click', () => overlay.remove());
+        document.body.appendChild(overlay);
+        requestAnimationFrame(() => overlay.classList.remove('opacity-0'));
+      });
+    });
+  </script>
+</body>
+</html>

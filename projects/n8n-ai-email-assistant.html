@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>n8n AI Email Customer Assistant — Tristan Galano</title>
+    <meta
+      name="description"
+      content="AI email assistant built with n8n handling pricing, tracking, and estimate queries via shared product links."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Montserrat", "ui-sans-serif", "system-ui"] },
+          },
+        },
+        darkMode: "class",
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+    <!-- Header (same as index, but nav links go back to home sections) -->
+    <header
+      class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/60 dark:border-slate-800"
+    >
+      <nav
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <a href="../index.html" class="font-bold tracking-tight text-lg"
+          >Tristan <span class="text-indigo-600">Galano</span></a
+        >
+        <ul class="hidden sm:flex gap-6 text-sm">
+          <li>
+            <a href="../index.html#about" class="hover:text-indigo-600"
+              >Summary</a
+            >
+          </li>
+          <li>
+            <a href="../index.html#experience" class="hover:text-indigo-600"
+              >Experience</a
+            >
+          </li>
+          <li>
+            <a href="../index.html#projects" class="hover:text-indigo-600"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="../index.html#skills" class="hover:text-indigo-600"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a href="../resume.html" class="hover:text-indigo-600">Resume</a>
+          </li>
+          <li>
+            <a href="../index.html#contact" class="hover:text-indigo-600"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="py-12 sm:py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Breadcrumb -->
+          <nav class="text-sm text-slate-500">
+            <a href="../index.html" class="hover:text-indigo-600">Home</a> ▸
+            <a href="../index.html#projects" class="hover:text-indigo-600"
+              >Projects</a
+            >
+            ▸
+            <span class="text-slate-400">n8n AI Email Customer Assistant</span>
+          </nav>
+
+          <h1 class="mt-3 text-3xl sm:text-4xl font-bold">
+            n8n AI Email Customer Assistant
+          </h1>
+          <p class="mt-2 text-slate-500">n8n • AI • API Integrations</p>
+
+          <!-- Hero / Cover (optional image or code block) -->
+          <div
+            class="mt-6 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/60"
+          >
+            <p class="text-sm text-slate-600 dark:text-slate-300">
+              AI chatbot that handles customer inquiries (pricing, tracking,
+              estimation) using shared product links and contextual rules.
+            </p>
+          </div>
+
+          <!-- Content -->
+          <div class="mt-10 grid lg:grid-cols-3 gap-8">
+            <!-- Main -->
+            <article class="lg:col-span-2 space-y-8">
+              <section>
+                <h2 class="text-xl font-semibold">Overview</h2>
+                <p class="mt-3 text-slate-700 dark:text-slate-300">
+                  Built an email assistant workflow in n8n that reads inbound
+                  messages, classifies intent, fetches data via APIs, and drafts
+                  human-like replies for review and send.
+                </p>
+              </section>
+
+              <section>
+                <div
+                  class="mt-6 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"
+                >
+                  <img
+                    src="../assets/images/ai-email-assistant/diagram.png"
+                    alt="Mail Merge app screenshot"
+                    class="w-full h-auto"
+                  />
+                </div>
+              </section>
+
+              <section>
+                <h2 class="text-xl font-semibold">Key Flows</h2>
+                <ul
+                  class="mt-3 list-disc ms-5 space-y-2 text-slate-700 dark:text-slate-300"
+                >
+                  <li>
+                    Intent detection (pricing, tracking, estimation) with rules
+                    + LLM fallback.
+                  </li>
+                  <li>
+                    Fetch product/price data from source endpoint; sanitize and
+                    map fields.
+                  </li>
+                  <li>
+                    Generate draft reply with guardrails; route to
+                    Gmail/Helpdesk for approval.
+                  </li>
+                  <li>
+                    Log interactions to Airtable for auditing and analytics.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h2 class="text-xl font-semibold">Stack</h2>
+                <p class="mt-3 text-slate-700 dark:text-slate-300">
+                  n8n, Webhooks, custom API nodes, Airtable (logging),
+                  Gmail/Helpdesk integration, optional LLM step, and validation
+                  functions in JavaScript.
+                </p>
+              </section>
+
+              <section>
+                <h2 class="text-xl font-semibold">Impact</h2>
+                <ul
+                  class="mt-3 list-disc ms-5 space-y-2 text-slate-700 dark:text-slate-300"
+                >
+                  <li>Reduced manual replies for common inquiries.</li>
+                  <li>
+                    Improved response consistency and time-to-first-response.
+                  </li>
+                  <li>
+                    Created an auditable trail (Airtable) for QA and
+                    improvement.
+                  </li>
+                </ul>
+              </section>
+
+              <div class="pt-6">
+                <a
+                  href="../index.html#projects"
+                  class="inline-flex items-center px-4 py-2 rounded-md border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900"
+                  >← Back to Projects</a
+                >
+              </div>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="space-y-4">
+              <div
+                class="rounded-lg border border-slate-200 dark:border-slate-800 p-5"
+              >
+                <h3 class="font-semibold">Technologies</h3>
+                <ul class="mt-2 text-sm space-y-1">
+                  <li>n8n</li>
+                  <li>APIs</li>
+                  <li>Airtable (logging)</li>
+                  <li>JavaScript</li>
+                </ul>
+              </div>
+              <div
+                class="rounded-lg border border-slate-200 dark:border-slate-800 p-5"
+              >
+                <h3 class="font-semibold">Role</h3>
+                <p class="mt-2 text-sm">Automation Specialist / Integrations</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-8">
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-slate-500 flex items-center justify-between"
+      >
+        <p>&copy; <span id="year"></span> Tristan Galano.</p>
+        <a href="#top" class="hover:text-indigo-600">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      document.querySelectorAll("img").forEach((img) => {
+        img.addEventListener("click", () => {
+          // Create overlay
+          const overlay = document.createElement("div");
+          overlay.className =
+            "fixed inset-0 bg-black/80 flex items-center justify-center z-50";
+
+          // Create image element
+          const enlargedImg = document.createElement("img");
+          enlargedImg.src = img.src;
+          enlargedImg.alt = img.alt;
+          enlargedImg.className =
+            "max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border border-slate-300 dark:border-slate-700";
+
+          // Append to overlay
+          overlay.appendChild(enlargedImg);
+          document.body.appendChild(overlay);
+
+          // Close on click
+          overlay.addEventListener("click", () => overlay.remove());
+        });
+      });
+    </script>
+  </body>
+</html>

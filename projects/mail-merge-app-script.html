@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mail Merge (Gmail + Google Sheets) — Tristan Galano</title>
+    <meta
+      name="description"
+      content="Custom Mail Merge app using Google APIs to create personalized Gmail drafts from a Google Sheet in minutes."
+    />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Montserrat", "ui-sans-serif", "system-ui"] },
+          },
+        },
+        darkMode: "class",
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Fav -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✉️</text></svg>"
+    />
+  </head>
+
+  <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/60 dark:border-slate-800"
+    >
+      <nav
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <a href="../index.html" class="font-bold tracking-tight text-lg"
+          >Tristan <span class="text-indigo-600">Galano</span></a
+        >
+        <ul class="hidden sm:flex gap-6 text-sm">
+          <li>
+            <a href="../index.html#about" class="hover:text-indigo-600"
+              >Summary</a
+            >
+          </li>
+          <li>
+            <a href="../index.html#experience" class="hover:text-indigo-600"
+              >Experience</a
+            >
+          </li>
+          <li>
+            <a href="../index.html#projects" class="hover:text-indigo-600"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="../index.html#skills" class="hover:text-indigo-600"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a href="../resume.html" class="hover:text-indigo-600">Resume</a>
+          </li>
+          <li>
+            <a href="../index.html#contact" class="hover:text-indigo-600"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="py-12 sm:py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Breadcrumb -->
+          <nav class="text-sm text-slate-500">
+            <a href="../index.html" class="hover:text-indigo-600">Home</a> ▸
+            <a href="../index.html#projects" class="hover:text-indigo-600"
+              >Projects</a
+            >
+            ▸
+            <span class="text-slate-400"
+              >Mail Merge (Gmail + Google Sheets)</span
+            >
+          </nav>
+
+          <h1 class="mt-3 text-3xl sm:text-4xl font-bold">
+            Mail Merge (Gmail + Google Sheets)
+          </h1>
+          <p class="mt-2 text-slate-500">
+            Python/Google Apps Script • Google APIs • Gmail Drafts •
+            Personalization
+          </p>
+
+          <!-- Hero summary -->
+          <div
+            class="mt-6 rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/60"
+          >
+            <p class="text-sm text-slate-700 dark:text-slate-300">
+              A custom Mail Merge app that reads a Google Sheet (websites +
+              emails), personalizes content, and automatically creates
+              <strong>Gmail drafts</strong> at scale. Designed to send ~50
+              tailored emails in just a couple of minutes.
+            </p>
+          </div>
+
+          <!-- Optional hero image (replace the SVG below with a real screenshot if you have one) -->
+          <div
+            class="mt-6 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"
+          >
+            <img
+              src="../assets/images/mailmerge/image.png"
+              alt="Mail Merge app screenshot"
+              class="w-full h-auto"
+            />
+          </div>
+
+          <!-- Content -->
+          <div class="mt-10 grid lg:grid-cols-3 gap-8">
+            <!-- Main -->
+            <article class="lg:col-span-2 space-y-8">
+              <section>
+                <h2 class="text-xl font-semibold">Overview</h2>
+                <p class="mt-3 text-slate-700 dark:text-slate-300">
+                  I built a lightweight Mail Merge tool that connects Google
+                  Sheets and Gmail via Google APIs. From a sheet of target
+                  <em>websites</em> and <em>emails</em>, it generates
+                  personalized email bodies (using fields like name, company,
+                  and website) and saves them as Gmail
+                  <strong>drafts</strong> for quick review and sending.
+                </p>
+              </section>
+
+              <section>
+                <h2 class="text-xl font-semibold">Key Features</h2>
+                <ul
+                  class="mt-3 list-disc ms-5 space-y-2 text-slate-700 dark:text-slate-300"
+                >
+                  <li>
+                    Reads recipients and context from a
+                    <strong>Google Sheet</strong>.
+                  </li>
+                  <li>
+                    Builds personalized subject lines and email bodies with
+                    placeholders (e.g., <code>{{name}}</code>,
+                    <code>{{company}}</code>, <code>{{website}}</code>).
+                  </li>
+                  <li>
+                    Creates <strong>Gmail drafts</strong> automatically—human
+                    review before send.
+                  </li>
+                  <li>
+                    Idempotent runs (skips or marks already drafted rows to
+                    avoid duplicates).
+                  </li>
+                  <li>
+                    Basic rate limiting to stay within Gmail/Google API quotas.
+                  </li>
+                  <li>
+                    Runtime: roughly
+                    <strong>50 emails in a few minutes</strong> end-to-end.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h2 class="text-xl font-semibold">Tech Stack</h2>
+                <p class="mt-3 text-slate-700 dark:text-slate-300">
+                  <strong>Google APIs</strong> (Sheets API, Gmail API)
+                  orchestrated with
+                  <strong>Python or Google Apps Script</strong> (depending on
+                  environment). Data source is a structured Google Sheet
+                  containing personalization fields.
+                </p>
+              </section>
+
+              <section>
+                <h2 class="text-xl font-semibold">How It Works</h2>
+                <ol
+                  class="mt-3 list-decimal ms-5 space-y-2 text-slate-700 dark:text-slate-300"
+                >
+                  <li>
+                    Prepare a Google Sheet with columns like <em>Name</em>,
+                    <em>Email</em>, <em>Company</em>, <em>Website</em>, and
+                    <em>Status</em>.
+                  </li>
+                  <li>
+                    Authenticate with Google (OAuth / Apps Script scopes).
+                  </li>
+                  <li>
+                    Read each row and render the email using a simple template.
+                  </li>
+                  <li>
+                    Call the Gmail API to create a
+                    <strong>draft</strong> (subject + body) for that recipient.
+                  </li>
+                  <li>
+                    Update the Sheet row <em>Status</em> (e.g., Drafted/Sent) to
+                    prevent duplicates.
+                  </li>
+                  <li>
+                    Manually review drafts in Gmail and send in batches as
+                    needed.
+                  </li>
+                </ol>
+              </section>
+
+              <section>
+                <h2 class="text-xl font-semibold">Impact</h2>
+                <ul
+                  class="mt-3 list-disc ms-5 space-y-2 text-slate-700 dark:text-slate-300"
+                >
+                  <li>
+                    Cut outreach time dramatically—about
+                    <strong>50 emails in minutes</strong>.
+                  </li>
+                  <li>
+                    Higher reply rates thanks to relevant, personalized lines.
+                  </li>
+                  <li>
+                    Lower risk: drafts allow final human edits before send.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h2 class="text-xl font-semibold">Example Sheet Columns</h2>
+                <div
+                  class="mt-3 overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800"
+                >
+                  <table class="min-w-full text-sm">
+                    <thead class="bg-slate-50 dark:bg-slate-900/40">
+                      <tr class="text-left">
+                        <th class="px-4 py-3">Name</th>
+                        <th class="px-4 py-3">Email</th>
+                        <th class="px-4 py-3">Company</th>
+                        <th class="px-4 py-3">Website</th>
+                        <th class="px-4 py-3">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="divide-y divide-slate-200 dark:divide-slate-800"
+                    >
+                      <tr>
+                        <td class="px-4 py-3">Jane Doe</td>
+                        <td class="px-4 py-3">jane@acme.com</td>
+                        <td class="px-4 py-3">Acme Co.</td>
+                        <td class="px-4 py-3">https://acme.com</td>
+                        <td class="px-4 py-3">Drafted</td>
+                      </tr>
+                      <tr>
+                        <td class="px-4 py-3">John Smith</td>
+                        <td class="px-4 py-3">john@contoso.io</td>
+                        <td class="px-4 py-3">Contoso</td>
+                        <td class="px-4 py-3">https://contoso.io</td>
+                        <td class="px-4 py-3">Pending</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="mt-2 text-xs text-slate-500">
+                  Tip: add columns like <em>First_Name</em>, <em>Use_Case</em>,
+                  or <em>Last_Contacted</em> for richer personalization.
+                </p>
+              </section>
+
+              <div class="pt-6 flex flex-wrap gap-3">
+                <!-- Replace the href with your actual repo or demo link -->
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-500"
+                >
+                  View Source / Demo
+                </a>
+                <a
+                  href="../index.html#projects"
+                  class="inline-flex items-center px-4 py-2 rounded-md border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900"
+                >
+                  ← Back to Projects
+                </a>
+              </div>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="space-y-4">
+              <div
+                class="rounded-lg border border-slate-200 dark:border-slate-800 p-5"
+              >
+                <h3 class="font-semibold">Technologies</h3>
+                <ul class="mt-2 text-sm space-y-1">
+                  <li>Google Sheets API</li>
+                  <li>Gmail API</li>
+                  <li>Python or Google Apps Script</li>
+                  <li>OAuth 2.0 / App Scopes</li>
+                </ul>
+              </div>
+
+              <div
+                class="rounded-lg border border-slate-200 dark:border-slate-800 p-5"
+              >
+                <h3 class="font-semibold">Role</h3>
+                <p class="mt-2 text-sm">
+                  Solo Developer — Design, API integration, templating,
+                  throughput tuning.
+                </p>
+              </div>
+
+              <div
+                class="rounded-lg border border-slate-200 dark:border-slate-800 p-5"
+              >
+                <h3 class="font-semibold">Status</h3>
+                <p class="mt-2 text-sm">
+                  Active; adding features like CSV import, bounce tracking, and
+                  send scheduling.
+                </p>
+              </div>
+
+              <div
+                class="rounded-lg border border-slate-200 dark:border-slate-800 p-5"
+              >
+                <h3 class="font-semibold">Safety & Limits</h3>
+                <ul class="mt-2 text-sm space-y-1">
+                  <li>
+                    Respects Gmail draft-first workflow (human-in-the-loop).
+                  </li>
+                  <li>Basic throttling to avoid quota spikes.</li>
+                  <li>Skips rows already drafted/sent.</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-8">
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-slate-500 flex items-center justify-between"
+      >
+        <p>&copy; <span id="year"></span> Tristan Galano.</p>
+        <a href="#top" class="hover:text-indigo-600">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script>
+      // year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Lightweight lightbox
+      // (click any image to open in fullscreen; click overlay to close)
+      document.querySelectorAll("img").forEach((img) => {
+        img.addEventListener("click", () => {
+          const overlay = document.createElement("div");
+          overlay.className =
+            "fixed inset-0 bg-black/80 flex items-center justify-center z-50 opacity-0 transition-opacity duration-300";
+          const enlarged = document.createElement("img");
+          enlarged.src = img.src;
+          enlarged.alt = img.alt || "";
+          enlarged.className =
+            "max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border border-slate-300 dark:border-slate-700";
+          overlay.appendChild(enlarged);
+          overlay.addEventListener("click", () => overlay.remove());
+          document.body.appendChild(overlay);
+          requestAnimationFrame(() => overlay.classList.remove("opacity-0"));
+        });
+      });
+    </script>
+  </body>
+</html>

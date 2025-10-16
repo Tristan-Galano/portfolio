@@ -1,158 +1,683 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tristan Galano - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">Tristan Galano</div>
-            <ul>
-                <li><a href="#about">Summary</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="https://tristan-galano.github.io/portfolio/resume.html">Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tristan Galano — Automation Specialist</title>
+    <meta
+      name="description"
+      content="Portfolio of Tristan Galano — Automation Specialist with experience in Make.com, n8n, App Script, Python, and JavaScript."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Montserrat", "ui-sans-serif", "system-ui"] },
+          },
+        },
+        darkMode: "class",
+      };
+    </script>
+
+    <!-- Favicon (optional) -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>"
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Tristan Galano — Automation Specialist"
+    />
+    <meta
+      property="og:description"
+      content="Automation Specialist with SEO and outreach background. Make.com, n8n, App Script, Python, JavaScript."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://tristan-galano.github.io/portfolio/"
+    />
+  </head>
+
+  <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+    <!-- Top bar -->
+    <header
+      class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/60 dark:border-slate-800"
+    >
+      <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="#" class="font-bold tracking-tight text-lg"
+            >Tristan <span class="text-indigo-600">Galano</span></a
+          >
+
+          <button
+            id="menuBtn"
+            class="sm:hidden inline-flex items-center p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-900"
+            aria-label="Open menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          <ul id="navLinks" class="hidden sm:flex gap-6 text-sm">
+            <li><a href="#about" class="hover:text-indigo-600">Summary</a></li>
+            <li>
+              <a href="#experience" class="hover:text-indigo-600">Experience</a>
+            </li>
+            <li>
+              <a href="#projects" class="hover:text-indigo-600">Projects</a>
+            </li>
+            <li><a href="#skills" class="hover:text-indigo-600">Skills</a></li>
+            <li>
+              <a
+                href="https://tristan-galano.github.io/portfolio/resume.html"
+                class="hover:text-indigo-600"
+                >Resume</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-indigo-600">Contact</a>
+            </li>
+          </ul>
+
+          <!-- Dark mode toggle -->
+          <button
+            id="themeToggle"
+            class="ml-3 hidden sm:inline-flex items-center p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-900"
+            aria-label="Toggle theme"
+          >
+            <span id="themeIcon">🌙</span>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <ul id="mobileMenu" class="sm:hidden hidden pb-4 space-y-2 text-sm">
+          <li>
+            <a href="#about" class="block py-2 hover:text-indigo-600"
+              >Summary</a
+            >
+          </li>
+          <li>
+            <a href="#experience" class="block py-2 hover:text-indigo-600"
+              >Experience</a
+            >
+          </li>
+          <li>
+            <a href="#projects" class="block py-2 hover:text-indigo-600"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="#skills" class="block py-2 hover:text-indigo-600"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://tristan-galano.github.io/portfolio/resume.html"
+              class="block py-2 hover:text-indigo-600"
+              >Resume</a
+            >
+          </li>
+          <li class="flex items-center justify-between">
+            <a href="#contact" class="block py-2 hover:text-indigo-600"
+              >Contact</a
+            >
+            <button
+              id="themeToggleMobile"
+              class="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-900"
+              aria-label="Toggle theme"
+            >
+              🌙
+            </button>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Hi, I'm Tristan Galano</h1>
-                <p class="subtitle">Automation Specialist</p>
-                <a href="#projects" class="cta-button">View My Work</a>
+      <!-- Hero -->
+      <section id="hero" class="relative overflow-hidden">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-indigo-100 via-white to-transparent dark:from-indigo-950/40 dark:via-slate-950"
+        ></div>
+        <div
+          class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24"
+        >
+          <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+                Hi, I’m <span class="text-indigo-600">Tristan Galano</span>
+              </h1>
+              <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+                AI Automation Specialist
+              </p>
+              <p class="mt-4 max-w-prose text-slate-700 dark:text-slate-300">
+                I streamline workflows and build scalable systems using
+                Make.com, n8n, Google Apps Script, Airtable, Python, and
+                JavaScript, SQL.
+              </p>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#projects"
+                  class="inline-flex items-center px-5 py-3 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  >View My Work</a
+                >
+                <a
+                  href="#contact"
+                  class="inline-flex items-center px-5 py-3 rounded-md border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900"
+                  >Contact Me</a
+                >
+              </div>
             </div>
-        </section>
+            <div class="md:justify-self-end">
+              <div
+                class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white/70 dark:bg-slate-900/60 shadow-sm"
+              >
+                <dl class="grid grid-cols-2 gap-6">
+                  <div>
+                    <dt class="text-sm text-slate-500">
+                      Years in Digital Marketing
+                    </dt>
+                    <dd class="text-2xl font-semibold">3+</dd>
+                  </div>
+                  <div>
+                    <dt class="text-sm text-slate-500">Months in Automation</dt>
+                    <dd class="text-2xl font-semibold">9+</dd>
+                  </div>
+                  <div>
+                    <dt class="text-sm text-slate-500">Core Tools</dt>
+                    <dd class="font-medium">
+                      Make, n8n, Apps Script, Airtable
+                    </dd>
+                  </div>
+                  <div>
+                    <dt class="text-sm text-slate-500">Languages</dt>
+                    <dd class="font-medium">Python, JS, SQL</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section id="about">
-            <h2>Career Summary</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Automation Specialist with a strong background in SEO and outreach, leveraging 3 years of digital marketing experience and 6 months in automation. Skilled in Make.com, N8N, App Script, and coding languages like Python and JavaScript. Adept at streamlining workflows, building scalable systems, and improving team efficiency through smart automation.</p>
-                </div>
-                </div>
-        </section>
+      <!-- About -->
+      <section id="about" class="py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl sm:text-3xl font-bold">Career Summary</h2>
+          <p class="mt-4 max-w-3xl text-slate-700 dark:text-slate-300">
+            I’m a tech-driven problem solver with a degree in
+            <strong>Information Technology</strong> and a passion for building
+            automation that makes work smarter. I create systems that connect
+            tools, streamline workflows, and turn repetitive tasks into
+            self-running processes.
+          </p>
 
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="experience-item">
-                <h3>Freelance – Automation Specialist (Gig)</h3>
-                <ul>
-                    <li>Automated Slack Notifications & Task Allocation using Make.com.</li>
-                    <li>Improved workload management with real-time task assignment automation.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>TYGweb.com – Website Acquisition Specialist (Remote)</h3>
-                <p><em>Jul 2024 – Jan 2025</em></p>
-                <ul>
-                    <li>Researched and analyzed 2,000+ websites using SEMrush.</li>
-                    <li>Automated outreach via Mail Merge App Scripts, reducing manual effort by 80%.</li>
-                    <li>Built lasting webmaster relationships and improved acquisition success rates.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>OutreachLab.com – Backlink Builder (Remote)</h3>
-                <p><em>Sep 2023 – Jun 2024</em></p>
-                <ul>
-                    <li>Managed site data via Respona and improved accuracy by 50%.</li>
-                    <li>Increased outreach engagement by 25% through personalized campaigns.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>DigitalWebProperties.com – SEO Backlink Builder (Remote)</h3>
-                <p><em>Apr 2022 – Sep 2023</em></p>
-                <ul>
-                    <li>Executed SEMrush-driven research for backlink targeting.</li>
-                    <li>Automated email campaigns, managed 3-way link exchanges, and maintained high outreach volume.</li>
-                </ul>
-            </div>
+          <p class="mt-4 max-w-3xl text-slate-700 dark:text-slate-300">
+            Using platforms like <strong>Make.com</strong>,
+            <strong>n8n</strong>, and <strong>Airtable</strong>, combined with
+            custom coding in <strong>Python</strong>,
+            <strong>JavaScript</strong>, and
+            <strong>Google Apps Script</strong>, I design scalable automations
+            and API-driven integrations tailored to how teams actually operate.
+          </p>
 
-            <h2 style="margin-top: 3rem;">Education</h2>
-            <div class="education-item">
-                <h3>BS in Information Technology</h3>
-                </div>
-            </section>
+          <p class="mt-4 max-w-3xl text-slate-700 dark:text-slate-300">
+            Before specializing in automation, I worked in
+            <strong>digital marketing and outreach</strong>, where I learned how
+            efficiency, data, and timing drive results. That experience shaped
+            my automation approach, one that balances technical execution with
+            business impact, helping teams save time and scale smarter.
+          </p>
+        </div>
+      </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>n8n AI Email Customer Assistant</h3>
-                    <p>AI chatbot that handles inquiries such as pricing, tracking, and estimation using shared product links.</p>
-                    <p><strong>Technologies:</strong> n8n, AI</p>
-                </div>
-                <div class="project-card">
-                    <h3>Basic POS with Debt Tracking</h3>
-                    <p>Python-based POS with features for debt monitoring and transaction tracking.</p>
-                    <p><strong>Technologies:</strong> Python</p>
-                </div>
-                <div class="project-card">
-                    <h3>Mail Merge App Script</h3>
-                    <p>Google Sheets + JavaScript automation for mass personalized email drafting.</p>
-                    <p><strong>Technologies:</strong> Google App Script, JavaScript</p>
-                </div>
-                <div class="project-card">
-                    <h3>Automated Slack Notifications</h3>
-                    <p>Slack integration for task alerts and auto-assignment via Make.com.</p>
-                    <p><strong>Technologies:</strong> Make.com, Slack API</p>
-                </div>
-                <div class="project-card">
-                    <h3>Automated Inspirational Quotes</h3>
-                    <p>Scheduled Telegram posts via Make.com.</p>
-                    <p><strong>Technologies:</strong> Make.com, Telegram API</p>
-                </div>
-                <div class="project-card">
-                    <h3>Automated Contract Drafting</h3>
-                    <p>End-to-end contract generation pipeline using Airtable, Close CRM, and Pandadoc.</p>
-                    <p><strong>Technologies:</strong> Airtable, Close CRM, Pandadoc, APIs</p>
-                </div>
+      <!-- Experience -->
+      <section
+        id="experience"
+        class="py-16 sm:py-24 bg-slate-50 dark:bg-slate-900/40"
+      >
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl sm:text-3xl font-bold">Experience</h2>
+
+          <ol class="mt-8 relative border-slate-200 dark:border-slate-800">
+            <!-- Item -->
+            <li class="mb-10 ms-6">
+              <span
+                class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-white ring-8 ring-white dark:ring-slate-950"
+                >1</span
+              >
+              <h3 class="text-lg font-semibold">
+                Freelance – Automation Specialist (Gig)
+              </h3>
+              <ul
+                class="list-disc ms-5 mt-2 space-y-1 text-slate-700 dark:text-slate-300"
+              >
+                <li>
+                  Automated Slack notifications & task allocation using
+                  Make.com.
+                </li>
+                <li>
+                  Improved workload management with real-time task assignment
+                  automation.
+                </li>
+              </ul>
+            </li>
+
+            <li class="mb-10 ms-6">
+              <span
+                class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-white ring-8 ring-white dark:ring-slate-950"
+                >2</span
+              >
+              <div class="flex items-center gap-3">
+                <h3 class="text-lg font-semibold">
+                  TYGweb.com – Website Acquisition Specialist (Remote)
+                </h3>
+                <span class="text-sm text-slate-500"
+                  ><em>Jul 2024 – Jan 2025</em></span
+                >
+              </div>
+              <ul
+                class="list-disc ms-5 mt-2 space-y-1 text-slate-700 dark:text-slate-300"
+              >
+                <li>Researched and analyzed 2,000+ websites using SEMrush.</li>
+                <li>
+                  Automated outreach via Mail Merge App Scripts, reducing manual
+                  effort by 80%.
+                </li>
+                <li>
+                  Built lasting webmaster relationships and improved acquisition
+                  success rates.
+                </li>
+              </ul>
+            </li>
+
+            <li class="mb-10 ms-6">
+              <span
+                class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-white ring-8 ring-white dark:ring-slate-950"
+                >3</span
+              >
+              <div class="flex items-center gap-3">
+                <h3 class="text-lg font-semibold">
+                  OutreachLab.com – Backlink Builder (Remote)
+                </h3>
+                <span class="text-sm text-slate-500"
+                  ><em>Sep 2023 – Jun 2024</em></span
+                >
+              </div>
+              <ul
+                class="list-disc ms-5 mt-2 space-y-1 text-slate-700 dark:text-slate-300"
+              >
+                <li>
+                  Managed site data via Respona and improved accuracy by 50%.
+                </li>
+                <li>
+                  Increased outreach engagement by 25% through personalized
+                  campaigns.
+                </li>
+              </ul>
+            </li>
+
+            <li class="ms-6">
+              <span
+                class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-white ring-8 ring-white dark:ring-slate-950"
+                >4</span
+              >
+              <div class="flex items-center gap-3">
+                <h3 class="text-lg font-semibold">
+                  DigitalWebProperties.com – SEO Backlink Builder (Remote)
+                </h3>
+                <span class="text-sm text-slate-500"
+                  ><em>Apr 2022 – Sep 2023</em></span
+                >
+              </div>
+              <ul
+                class="list-disc ms-5 mt-2 space-y-1 text-slate-700 dark:text-slate-300"
+              >
+                <li>
+                  Executed SEMrush-driven research for backlink targeting.
+                </li>
+                <li>
+                  Automated email campaigns, managed 3-way link exchanges, and
+                  maintained high outreach volume.
+                </li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3 class="text-xl font-semibold mt-12">Education</h3>
+          <p class="mt-2">BS in Information Technology</p>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl sm:text-3xl font-bold">Projects</h2>
+
+          <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card helper classes -->
+            <template id="cardTemplate"></template>
+            <a
+              href="projects/n8n-ai-email-assistant.html"
+              class="rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900 hover:shadow-md transition block"
+            >
+              <h3 class="font-semibold">n8n AI Email Customer Assistant</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                AI chatbot that handles inquiries such as pricing, tracking, and
+                estimation using shared product links.
+              </p>
+              <p class="mt-3 text-xs">
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >n8n</span
+                >
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >AI</span
+                >
+              </p>
+            </a>
+
+            <a
+              href="projects/basic-pos-debt-tracking.html"
+              class="rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900 hover:shadow-md transition block"
+            >
+              <h3 class="font-semibold">Basic POS with Debt Tracking</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                Python-based POS with debt monitoring and transaction tracking.
+              </p>
+              <p class="mt-3 text-xs">
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >Python</span
+                >
+              </p>
+            </a>
+
+            <a
+              href="projects/mail-merge-app-script.html"
+              class="rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900 hover:shadow-md transition block"
+            >
+              <h3 class="font-semibold">Mail Merge App Script</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                Google Sheets + JavaScript automation for mass personalized
+                email drafting.
+              </p>
+              <p class="mt-3 text-xs">
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >Apps Script</span
+                >
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >JavaScript</span
+                >
+              </p>
+            </a>
+
+            <a
+              href="projects/automated-slack-notifs.html"
+              class="rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900 hover:shadow-md transition block"
+            >
+              <h3 class="font-semibold">Automated Slack Notifications</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                Task alerts and auto-assignment via Make.com.
+              </p>
+              <p class="mt-3 text-xs">
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >Make.com</span
+                >
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >Slack API</span
+                >
+              </p>
+            </a>
+
+            <a
+              href="projects/automated-inspirational-quotes.html"
+              class="rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900 hover:shadow-md transition block"
+            >
+              <h3 class="font-semibold">Automated Inspirational Quotes</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                Scheduled Telegram posts via Make.com.
+              </p>
+              <p class="mt-3 text-xs">
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >Make.com</span
+                >
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >Telegram API</span
+                >
+              </p>
+            </a>
+
+            <a
+              href="projects/automated-contract-drafting.html"
+              class="rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900 hover:shadow-md transition block"
+            >
+              <h3 class="font-semibold">Automated Contract Drafting</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                End-to-end contract generation with Airtable, Close CRM, and
+                PandaDoc.
+              </p>
+              <p class="mt-3 text-xs">
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >Airtable</span
+                >
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >Close CRM</span
+                >
+                <span
+                  class="inline-flex px-2 py-1 rounded bg-slate-100 dark:bg-slate-800"
+                  >PandaDoc</span
+                >
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section
+        id="skills"
+        class="py-16 sm:py-24 bg-slate-50 dark:bg-slate-900/40"
+      >
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl sm:text-3xl font-bold">Skills</h2>
+          <ul class="mt-6 flex flex-wrap gap-2">
+            <li
+              class="px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700"
+            >
+              Automation
+            </li>
+            <li
+              class="px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700"
+            >
+              Make.com
+            </li>
+            <li
+              class="px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700"
+            >
+              N8N
+            </li>
+            <li
+              class="px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700"
+            >
+              Airtable
+            </li>
+            <li
+              class="px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700"
+            >
+              API Integration
+            </li>
+            <li
+              class="px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700"
+            >
+              Webhooks
+            </li>
+            <li
+              class="px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700"
+            >
+              Python
+            </li>
+            <li
+              class="px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700"
+            >
+              HTML
+            </li>
+            <li
+              class="px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700"
+            >
+              CSS
+            </li>
+            <li
+              class="px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700"
+            >
+              JavaScript
+            </li>
+            <li
+              class="px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700"
+            >
+              MySQL
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl sm:text-3xl font-bold">Get In Touch</h2>
+          <p class="mt-3 max-w-2xl text-slate-700 dark:text-slate-300">
+            I'm always open to discussing new projects, creative ideas, or
+            opportunities to be part of your visions.
+          </p>
+
+          <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+              class="rounded-lg border border-slate-200 dark:border-slate-800 p-5"
+            >
+              <p class="text-sm text-slate-500">Location</p>
+              <p class="mt-1 font-medium">Butuan City, PH</p>
             </div>
-        </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <ul>
-                        <li>Automation</li>
-                        <li>Backlink Building</li>
-                        <li>Make.com</li>
-                        <li>N8N</li>
-                        <li>Airtable</li>
-                        <li>API Integration</li>
-                        <li>Webhooks</li>
-                        <li>Python</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                        <li>MySQL</li>
-                    </ul>
-                </div>
-                </div>
-        </section>
-        <section id="contact">
-            <h2>Get In Touch</h2>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> Location: Butuan City, PH</p>
-                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+639517978703">+63 951 797 8703</a></p>
-                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:Tristan.galano22@gmail.com">Tristan.galano22@gmail.com</a></p>
-                <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="#" target="_blank">Your LinkedIn Profile</a> </p>
-                </div>
-        </section>
+            <div
+              class="rounded-lg border border-slate-200 dark:border-slate-800 p-5"
+            >
+              <p class="text-sm text-slate-500">Phone</p>
+              <a
+                class="mt-1 block font-medium hover:text-indigo-600"
+                href="tel:+639517978703"
+                >+63 951 797 8703</a
+              >
+            </div>
+            <div
+              class="rounded-lg border border-slate-200 dark:border-slate-800 p-5"
+            >
+              <p class="text-sm text-slate-500">Email</p>
+              <a
+                class="mt-1 block font-medium hover:text-indigo-600"
+                href="mailto:Tristan.galano22@gmail.com"
+                >Tristan.galano22@gmail.com</a
+              >
+            </div>
+            <div
+              class="rounded-lg border border-slate-200 dark:border-slate-800 p-5"
+            >
+              <p class="text-sm text-slate-500">LinkedIn</p>
+              <a
+                class="mt-1 block font-medium hover:text-indigo-600"
+                href="#"
+                target="_blank"
+                rel="noopener"
+                >Your LinkedIn Profile</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Tristan Galano. All rights reserved.</p>
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-8">
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-slate-500 flex items-center justify-between"
+      >
+        <p>
+          &copy; <span id="year"></span> Tristan Galano. All rights reserved.
+        </p>
+        <a href="#hero" class="hover:text-indigo-600">Back to top ↑</a>
+      </div>
     </footer>
 
-    </body>
+    <script>
+      // Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Mobile menu
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const navLinks = document.getElementById("navLinks");
+      menuBtn?.addEventListener("click", () =>
+        mobileMenu.classList.toggle("hidden")
+      );
+
+      // Theme toggle (persists)
+      const root = document.documentElement;
+      const themeIcon = document.getElementById("themeIcon");
+      const themeToggle = document.getElementById("themeToggle");
+      const themeToggleMobile = document.getElementById("themeToggleMobile");
+
+      function setTheme(mode) {
+        localStorage.setItem("theme", mode);
+        if (mode === "dark") {
+          root.classList.add("dark");
+          if (themeIcon) themeIcon.textContent = "☀️";
+          if (themeToggleMobile) themeToggleMobile.textContent = "☀️";
+        } else {
+          root.classList.remove("dark");
+          if (themeIcon) themeIcon.textContent = "🌙";
+          if (themeToggleMobile) themeToggleMobile.textContent = "🌙";
+        }
+      }
+      const saved = localStorage.getItem("theme");
+      setTheme(saved ?? "dark");
+      setTheme(saved ?? (prefersDark ? "dark" : "light"));
+
+      themeToggle?.addEventListener("click", () =>
+        setTheme(root.classList.contains("dark") ? "light" : "dark")
+      );
+      themeToggleMobile?.addEventListener("click", () =>
+        setTheme(root.classList.contains("dark") ? "light" : "dark")
+      );
+    </script>
+  </body>
 </html>
